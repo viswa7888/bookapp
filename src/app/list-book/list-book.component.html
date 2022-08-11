@@ -1,0 +1,26 @@
+<h3>Books</h3>
+<!-- {{books | json}} -->
+<div class="row">
+  <div class="col">
+    search By Title:
+    <input type="text" name="title" id="title"[(ngModel)]="title" placeholder="search by Title">
+  </div>
+</div>
+  <br>
+  <div class="row">
+        <div class="col-4" *ngFor="let book of books">
+            <div class="card" style="width: 18rem;" >
+                <img src="assets/images/{{book.images}}" width="200px" height="200px" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{book.title}}</h5>
+                  <p class="card-text">Author: {{book.author}} <br/> Price: {{book.price | currency:'INR'}} <br/>
+                Published Year: {{book.published_year}} <br/>
+            ISBN: {{book.isbn}}<br/>
+            Stock:{{book.stock}}
+          </p>
+                  <a routerLink="/viewbook/{{book.id}}" class="btn btn-primary">View</a>
+                </div>
+              </div>
+
+        </div>
+</div>  

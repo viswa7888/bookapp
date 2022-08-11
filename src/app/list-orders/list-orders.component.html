@@ -1,0 +1,28 @@
+<h3>All Orders</h3>
+<table class="table table-bordererd">
+    <thead>
+        <tr>
+            <th>Sno</th>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Ordered Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{order.item_name}}</td>
+            <td>{{order.totalPrice | currency:"INR"}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.ordered_date}}</td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="deliverOrder(order)">DELIVERED</button>
+                &nbsp;
+                <button type="button" class="btn btn-danger" (click)="cancelOrder(order)">CANCEL</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
